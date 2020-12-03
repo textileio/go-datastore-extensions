@@ -7,6 +7,6 @@ type QueryExt struct {
 	SeekPrefix string
 }
 
-type ExtendedDatastore interface {
+type QueryExtensions interface {
 	QueryExtended(q QueryExt) (query.Results, error)
 }
