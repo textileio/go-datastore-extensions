@@ -1,6 +1,8 @@
 package dsextensions
 
 import (
+	"context"
+
 	"github.com/ipfs/go-datastore"
 	"github.com/ipfs/go-datastore/query"
 )
@@ -16,10 +18,10 @@ type TxnExt interface {
 }
 
 type DatastoreExtensions interface {
-	NewTransactionExtended(readOnly bool) (TxnExt, error)
+	NewTransactionExtended(ctx context.Context, readOnly bool) (TxnExt, error)
 	QueryExtensions
 }
 
 type QueryExtensions interface {
-	QueryExtended(q QueryExt) (query.Results, error)
+	QueryExtended(ctx context.Context, q QueryExt) (query.Results, error)
 }
